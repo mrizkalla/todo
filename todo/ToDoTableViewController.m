@@ -12,7 +12,7 @@
 
 @interface ToDoTableViewController ()
 
-@property BOOL isEditing;
+@property BOOL isNavBarEditing;
 @property (nonatomic, strong) NSMutableArray *mToDoList;
 @property (nonatomic, strong) NSString *mTodoArrayFileName;
 
@@ -49,7 +49,7 @@ static char indexPathKey;
     // Setup the navigation bar
     self.navigationItem.title = @"To Do List";
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    self.isEditing = NO;
+    self.isNavBarEditing = NO;
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
                                                                                  target:self
                                                                                  action:@selector(addToDoItem:)];
@@ -99,7 +99,6 @@ static char indexPathKey;
     }
     
     // Configure the cell...
-    //NSLog(@"row: %d", [indexPath row]);
     cell.todoItemTextField.text = [self.mToDoList objectAtIndex:[indexPath row]];
     cell.todoItemTextField.delegate = self;  // self is the ToDoTableViewController
     
@@ -133,8 +132,6 @@ static char indexPathKey;
     }
 }
 
-
-
 - (void)addToDoItem:(id)sender {
     // About to start adding a new item so change button to Done
     [self toggleRightNavButton];
@@ -150,22 +147,19 @@ static char indexPathKey;
 
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
     // About to edit some field.  Make sure there is a done button instead of an add button
-    if (!self.isEditing) {
+    if (!self.isNavBarEditing) {
         [self toggleRightNavButton];
     }
     return YES;
-
 }
 
 - (BOOL)textFieldShouldEndEditing:(UITextField *)textField {
     [self updateToDoItem:textField];
-    NSLog(@"inside textFieldDidEndEditing in ToDoCell");
     return YES;
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     [self updateToDoItem:textField];
-    NSLog(@"inside textFieldShouldReturn in ToDoCell");
     return YES;
 }
 
@@ -199,8 +193,8 @@ static char indexPathKey;
 
 - (void)toggleRightNavButton {
     UIBarButtonItem *theButton;
-    self.isEditing = !(self.isEditing);
-    if (self.isEditing) {
+    self.isNavBarEditing = !(self.isNavBarEditing);
+    if (self.isNavBarEditing) {
         theButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone
                                                                                target:self
                                                                                action:@selector(doneEditing:)];
