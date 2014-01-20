@@ -107,7 +107,6 @@ static char indexPathKey;
     return cell;
 }
 
-
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
@@ -119,6 +118,19 @@ static char indexPathKey;
     NSAssert(success, @"writeToFile failed");    
 }
 
+// Support delete of an item in the table view
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    // If row is deleted, remove it from the list.
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self.mToDoList removeObjectAtIndex:indexPath.row];
+        
+        // Write the array to disk
+        BOOL success = [self.mToDoList writeToFile:self.mTodoArrayFileName atomically:YES];
+        NSAssert(success, @"writeToFile failed");
+        
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+}
 
 // Override to support conditional rearranging of the table view.
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
@@ -164,7 +176,7 @@ static char indexPathKey;
 }
 
 // Update the data model after an edit has taken place
-- (void)updateToDoItem:(UITextField *) textField {
+- (void)updateToDoItem:(UITextField *)textField {
     NSIndexPath *indexPath = objc_getAssociatedObject(textField, &indexPathKey);
 
     [self.mToDoList replaceObjectAtIndex:indexPath.row withObject:textField.text];
@@ -175,20 +187,6 @@ static char indexPathKey;
     
     // update the table view
     [self.tableView reloadData];
-}
-
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    // If row is deleted, remove it from the list.
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        [self.mToDoList removeObjectAtIndex:indexPath.row];
-        
-        // Update the array on disk
-        // Write the array to disk
-        BOOL success = [self.mToDoList writeToFile:self.mTodoArrayFileName atomically:YES];
-        NSAssert(success, @"writeToFile failed");
-        
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }
 }
 
 - (void)toggleRightNavButton {
@@ -215,11 +213,12 @@ static char indexPathKey;
 - (void)doneEditing:(id)sender {
     [self toggleRightNavButton];
     
-    // will this fire a should end editing call?
+    // fire a should end editing call
     [self.tableView endEditing:YES];
 }
 
-// When the user enters Edit mode (to delete or reoder the list) then disable the add button:
+// When the user enters Edit mode (to delete or reoder the list) then disable the add button
+// and vice verse if they exit Edit mode
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated {
     [super setEditing:editing animated:animated];
     [self.tableView setEditing:editing animated:YES];

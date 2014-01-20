@@ -14,7 +14,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="This is a test cell" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eZK-ha-l5G">
-                        <rect key="frame" x="20" y="0.0" width="280" height="43"/>
+                        <rect key="frame" x="20" y="0.0" width="249" height="43"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="23"/>
                         <textInputTraits key="textInputTraits"/>
