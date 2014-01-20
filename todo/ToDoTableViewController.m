@@ -121,14 +121,18 @@ static char indexPathKey;
 }
 
 
-/*
 // Override to support conditional rearranging of the table view.
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the item to be re-orderable.
-    return YES;
+    // This applys when there is only one item in the list
+    if (self.mToDoList.count == 1) {
+        return NO;
+    } else {
+        return YES;
+    }
 }
-*/
+
 
 
 - (void)addToDoItem:(id)sender {
