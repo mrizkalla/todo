@@ -6,20 +6,26 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="hf2-co-uiP" customClass="EditableCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="47" id="hf2-co-uiP" customClass="EditableCell">
+            <rect key="frame" x="0.0" y="0.0" width="336" height="47"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hf2-co-uiP" id="lOb-q8-5Ct">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="336" height="46"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="This is a test cell" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eZK-ha-l5G">
-                        <rect key="frame" x="20" y="0.0" width="249" height="43"/>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="This is a test cell" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eZK-ha-l5G">
+                        <rect key="frame" x="20" y="0.0" width="296" height="43"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name="Avenir-Roman" family="Avenir" pointSize="23"/>
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="eZK-ha-l5G" firstAttribute="leading" secondItem="lOb-q8-5Ct" secondAttribute="leading" constant="20" symbolic="YES" id="JrB-8N-ZcA"/>
+                    <constraint firstAttribute="trailing" secondItem="eZK-ha-l5G" secondAttribute="trailing" constant="20" id="LmJ-XS-AMn"/>
+                    <constraint firstAttribute="bottom" secondItem="eZK-ha-l5G" secondAttribute="bottom" constant="3" id="ZtA-SL-pIG"/>
+                    <constraint firstItem="eZK-ha-l5G" firstAttribute="top" secondItem="lOb-q8-5Ct" secondAttribute="top" id="cq0-fZ-VwR"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="todoItemTextField" destination="eZK-ha-l5G" id="Lr0-lE-z0s"/>
