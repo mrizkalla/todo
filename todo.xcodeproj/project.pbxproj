@@ -19,6 +19,10 @@
 		A5E423F8188C443F0045D291 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A5E423E0188C443F0045D291 /* UIKit.framework */; };
 		A5E42400188C443F0045D291 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A5E423FE188C443F0045D291 /* InfoPlist.strings */; };
 		A5E42402188C443F0045D291 /* todoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E42401188C443F0045D291 /* todoTests.m */; };
+		A5E4240E188C44A60045D291 /* ToDoTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E4240C188C44A60045D291 /* ToDoTableViewController.m */; };
+		A5E4240F188C44A60045D291 /* ToDoTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5E4240D188C44A60045D291 /* ToDoTableViewController.xib */; };
+		A5E42412188C46DB0045D291 /* EditableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A5E42411188C46DB0045D291 /* EditableCell.m */; };
+		A5E42414188C46EA0045D291 /* EditableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A5E42413188C46EA0045D291 /* EditableCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,12 @@
 		A5E423FD188C443F0045D291 /* todoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "todoTests-Info.plist"; sourceTree = "<group>"; };
 		A5E423FF188C443F0045D291 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A5E42401188C443F0045D291 /* todoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = todoTests.m; sourceTree = "<group>"; };
+		A5E4240B188C44A60045D291 /* ToDoTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToDoTableViewController.h; sourceTree = "<group>"; };
+		A5E4240C188C44A60045D291 /* ToDoTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ToDoTableViewController.m; sourceTree = "<group>"; };
+		A5E4240D188C44A60045D291 /* ToDoTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToDoTableViewController.xib; sourceTree = "<group>"; };
+		A5E42410188C46DB0045D291 /* EditableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditableCell.h; sourceTree = "<group>"; };
+		A5E42411188C46DB0045D291 /* EditableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditableCell.m; sourceTree = "<group>"; };
+		A5E42413188C46EA0045D291 /* EditableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EditableCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +121,12 @@
 				A5E423EC188C443F0045D291 /* AppDelegate.m */,
 				A5E423EE188C443F0045D291 /* Images.xcassets */,
 				A5E423E3188C443F0045D291 /* Supporting Files */,
+				A5E4240B188C44A60045D291 /* ToDoTableViewController.h */,
+				A5E4240C188C44A60045D291 /* ToDoTableViewController.m */,
+				A5E4240D188C44A60045D291 /* ToDoTableViewController.xib */,
+				A5E42410188C46DB0045D291 /* EditableCell.h */,
+				A5E42411188C46DB0045D291 /* EditableCell.m */,
+				A5E42413188C46EA0045D291 /* EditableCell.xib */,
 			);
 			path = todo;
 			sourceTree = "<group>";
@@ -220,6 +236,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A5E423E7188C443F0045D291 /* InfoPlist.strings in Resources */,
+				A5E42414188C46EA0045D291 /* EditableCell.xib in Resources */,
+				A5E4240F188C44A60045D291 /* ToDoTableViewController.xib in Resources */,
 				A5E423EF188C443F0045D291 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -239,8 +257,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A5E4240E188C44A60045D291 /* ToDoTableViewController.m in Sources */,
 				A5E423ED188C443F0045D291 /* AppDelegate.m in Sources */,
 				A5E423E9188C443F0045D291 /* main.m in Sources */,
+				A5E42412188C46DB0045D291 /* EditableCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
